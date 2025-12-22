@@ -28,7 +28,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     const categoryName = product.category?.name || 'Producto';
     const categorySlug = product.category?.slug || 'productos';
 
-    const breadcrumbItems = [
+    const breadcrumbItems: { label: string; href?: string }[] = [
         { label: 'Catálogo', href: '/catalogo' },
         { label: categoryName, href: `/catalogo/${categorySlug}` },
         { label: product.name }
@@ -83,8 +83,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                             <button
                                 onClick={toggleWishlist}
                                 className={`flex-1 font-semibold h-12 rounded-md flex items-center justify-center gap-2 transition-all neon-shadow ${isWishlisted
-                                        ? 'bg-secondary text-foreground border border-primary'
-                                        : 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                                    ? 'bg-secondary text-foreground border border-primary'
+                                    : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                                     }`}
                             >
                                 {isWishlisted ? (

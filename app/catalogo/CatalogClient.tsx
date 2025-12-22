@@ -121,7 +121,7 @@ export default function CatalogClient({
     };
 
     // Breadcrumbs
-    const breadcrumbItems = [
+    const breadcrumbItems: { label: string; href?: string }[] = [
         { label: 'Catálogo', href: '/catalogo' },
     ];
     if (categorySlug) {
