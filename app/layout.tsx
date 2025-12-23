@@ -11,8 +11,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Compugeeks | Next-Gen Tech Store",
-  description: "Your best source for computer parts, laptops, and accessories.",
+  title: {
+    default: "Compugeeks | Tienda de Tecnología en Puno, Perú",
+    template: "%s | Compugeeks Puno"
+  },
+  description: "La mejor tienda de tecnología en Puno, Perú. Venta de laptops, componentes de PC, accesorios y más con garantía asegurada.",
+  keywords: ["tecnologia puno", "laptops puno", "computadoras peru", "compugeeks", "partes de pc puno", "gaming puno", "tienda informatica puno"],
+  authors: [{ name: "Compugeeks" }],
+  creator: "Compugeeks",
+  publisher: "Compugeeks",
+  formatDetection: {
+    email: false,
+    address: true,
+    telephone: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_PE",
+    url: "https://compugeeks.com.pe",
+    siteName: "Compugeeks Puno",
+    title: "Compugeeks | Tecnología de Vanguardia en Puno, Perú",
+    description: "Expertos en Laptops, PC Gamers y Componentes en la ciudad de Puno. Envíos y garantía local.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compugeeks | Tecnología en Puno, Perú",
+    description: "Tu mejor opción en tecnología en el sur del Perú.",
+  },
   icons: {
     icon: "/CompuGeeks_logo.svg",
   },
