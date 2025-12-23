@@ -1,6 +1,12 @@
 import { api } from '@/services/api';
 import { ProductFilterParams } from '@/types';
 import CatalogClient from './CatalogClient';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Catálogo de Productos",
+    description: "Explora nuestra amplia gama de laptops, componentes de PC y periféricos en Puno. Los mejores precios y las mejores marcas.",
+};
 
 // Use standard Next.js page props pattern
 // We can fetch data here on server for SEO
