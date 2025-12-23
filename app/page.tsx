@@ -23,47 +23,6 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col gap-12 pb-10">
-      {/* Local Business Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Compugeeks",
-            "image": "https://compugeeks.com.pe/CompuGeeks_logo.svg",
-            "@id": "https://compugeeks.com.pe",
-            "url": "https://compugeeks.com.pe",
-            "telephone": "+51999999999",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Av. Principal 123",
-              "addressLocality": "Puno",
-              "addressRegion": "Puno",
-              "postalCode": "21001",
-              "addressCountry": "PE"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -15.8402,
-              "longitude": -70.0219
-            },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-              ],
-              "opens": "09:00",
-              "closes": "19:00"
-            }
-          })
-        }}
-      />
       {/* HERO SECTION - Client Component for auto-rotation */}
       <section className="w-full">
         <BannerCarousel banners={BANNERS} />

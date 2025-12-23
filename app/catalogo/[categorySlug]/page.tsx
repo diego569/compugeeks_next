@@ -59,11 +59,10 @@ export async function generateMetadata({ params }: { params: { categorySlug: str
     }
 
     return {
-        title: `${category.name} en Puno`,
-        description: `Compra ${category.name} con las mejores ofertas en Compugeeks Puno. Calidad garantizada y envíos locales en todo Puno, Perú.`,
+        title: `${category.name} | Compugeeks`,
+        description: `Encuentra lo mejor en ${category.name} en Compugeeks.`,
         openGraph: {
-            title: `${category.name} | Compugeeks Puno`,
-            description: `Lo último en ${category.name} disponible ahora en nuestra tienda en Puno.`,
+            title: category.name,
             images: category.imageUrl ? [category.imageUrl] : [],
         },
     };

@@ -15,12 +15,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 
     return {
-        title: `${product.name} - Compugeeks Puno`,
-        description: product.description?.slice(0, 160) || `Encuentra ${product.name} en Compugeeks Puno. Los mejores componentes de tecnología con garantía oficial en Puno, Perú.`,
+        title: `${product.name} | Compugeeks`,
+        description: product.description || `Compra ${product.name} al mejor precio en Compugeeks.`,
         openGraph: {
-            title: `${product.name} | Compugeeks Puno`,
-            description: product.description?.slice(0, 160) || `Disponible en Compugeeks Puno con el mejor precio del mercado local.`,
-            images: product.productImages?.[0] ? [product.productImages[0].url] : [],
+            title: product.name,
+            description: product.description || `Compra ${product.name} al mejor precio.`,
+            images: product.productImages && product.productImages[0] ? [product.productImages[0].url] : [],
         },
     };
 }

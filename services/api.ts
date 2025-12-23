@@ -1,8 +1,9 @@
 import { Product, Category, ProductFilterParams } from "../types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3081/api";
+// const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://panel.compugeeks.com.pe/back/api";
 const BASE_URL = API_BASE_URL.replace('/api', ''); // Get root URL for static assets
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWl6MGJsbDAwMDAxc2MybnJjYWJpenVsIiwiaWF0IjoxNzY2MzczOTQ0fQ.YdJae2pJkFUpjG4uM-wQGN1PUT3GGP9oMZ8IRc1Tnyw";
+// const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWl6MGJsbDAwMDAxc2MybnJjYWJpenVsIiwiaWF0IjoxNzY2MzczOTQ0fQ.YdJae2pJkFUpjG4uM-wQGN1PUT3GGP9oMZ8IRc1Tnyw";
 //const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWl6MGJsbDAwMDAxc2MybnJjYWJpenVsIiwiaWF0IjoxNzY1NDU3MzA4fQ.4THqKWgWgDdTh_SoLbyN1XF8LAznfFmKAdLhNh0dElQ";
 
 const checkImageUrl = (url?: string) => {
@@ -16,7 +17,7 @@ const checkImageUrl = (url?: string) => {
 
 const getHeaders = () => ({
     "Content-Type": "application/json",
-    "Authorization": `Bearer ${TOKEN}`
+    // "Authorization": `Bearer ${TOKEN}`
 });
 
 const mapBackendProductToFrontend = (bkProduct: any): Product => {
@@ -51,7 +52,7 @@ export const api = {
             if (params.categoryId) query.append("categoryId", params.categoryId);
 
             try {
-                const res = await fetch(`${API_BASE_URL}/products?${query.toString()}`, {
+                const res = await fetch(`${API_BASE_URL}/ecommerce?${query.toString()}`, {
                     headers: getHeaders()
                 });
 
@@ -72,7 +73,7 @@ export const api = {
         },
         getById: async (id: string) => {
             try {
-                const res = await fetch(`${API_BASE_URL}/products/${id}`, {
+                const res = await fetch(`${API_BASE_URL}/ecommerce/${id}`, {
                     headers: getHeaders()
                 });
                 if (!res.ok) throw new Error("Failed to fetch product");
@@ -85,7 +86,7 @@ export const api = {
         },
         getBySlug: async (slug: string) => {
             try {
-                const res = await fetch(`${API_BASE_URL}/products/slug/${slug}`, {
+                const res = await fetch(`${API_BASE_URL}/ecommerce/slug/${slug}`, {
                     headers: getHeaders()
                 });
                 if (!res.ok) throw new Error("Failed to fetch product by slug");
@@ -107,7 +108,7 @@ export const api = {
             if (params.maxPrice) query.append("maxPrice", params.maxPrice.toString());
 
             try {
-                const res = await fetch(`${API_BASE_URL}/products/category/${categoryId}/recursive?${query.toString()}`, {
+                const res = await fetch(`${API_BASE_URL}/ecommerce/category/${categoryId}/recursive?${query.toString()}`, {
                     headers: getHeaders()
                 });
 
@@ -130,7 +131,7 @@ export const api = {
     categories: {
         list: async () => {
             try {
-                const res = await fetch(`${API_BASE_URL}/categories`, {
+                const res = await fetch(`${API_BASE_URL}/ecommerce/categories/list`, {
                     headers: getHeaders()
                 });
                 if (!res.ok) throw new Error("Failed to fetch categories");
@@ -152,7 +153,7 @@ export const api = {
         },
         getBySlug: async (slug: string) => {
             try {
-                const res = await fetch(`${API_BASE_URL}/categories`, {
+                const res = await fetch(`${API_BASE_URL}/ecommerce/categories/list`, {
                     headers: getHeaders()
                 });
                 if (!res.ok) throw new Error("Failed to fetch categories");
